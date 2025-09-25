@@ -52,27 +52,91 @@ sre-agent-service/
 - Azure OpenAI API access
 - Kubernetes cluster (AKS recommended)
 - Access to Signoz, MongoDB Atlas, and Slack APIs
+- Git (for version control)
+
+### Git Setup & Configuration
+
+#### 1. Clone the Repository
+```bash
+# Clone the repository
+git clone https://github.com/Sasai-Fintech/sre-agent-service.git
+cd sre-agent-service
+
+# Verify the repository
+git remote -v
+```
+
+#### 2. Configure Git (if not already done)
+```bash
+# Set up your Git identity
+git config --global user.name "Your Name"
+git config --global user.email "your.email@sasaifintech.com"
+
+# Verify configuration
+git config --global --list
+```
+
+#### 3. Set up Authentication
+For private repository access, you'll need a Personal Access Token (PAT):
+
+1. **Generate PAT on GitHub:**
+   - Go to GitHub → Settings → Developer settings → Personal access tokens
+   - Generate new token with `repo` scope
+   - Copy the token (starts with `ghp_`)
+
+2. **Configure Git credentials:**
+```bash
+# Option 1: Use credential helper (recommended)
+git config --global credential.helper store
+
+# Option 2: Use token in URL (temporary)
+git remote set-url origin https://YOUR_USERNAME:YOUR_PAT@github.com/Sasai-Fintech/sre-agent-service.git
+```
+
+#### 4. Branch Management
+```bash
+# Create and switch to a new feature branch
+git checkout -b feature/your-feature-name
+
+# Switch back to main
+git checkout main
+
+# Pull latest changes
+git pull origin main
+
+# Push your changes
+git push origin feature/your-feature-name
+```
 
 ### Installation
 
-1. Clone the repository:
-```bash
-git clone https://github.com/your-username/sre-agent-service.git
-cd sre-agent-service
-```
-
-2. Install dependencies:
+1. **Install Python dependencies:**
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Configure environment variables:
+2. **Set up virtual environment (recommended):**
 ```bash
-cp .env.example .env
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+# On macOS/Linux:
+source venv/bin/activate
+# On Windows:
+venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+3. **Configure environment variables:**
+```bash
+cp env.example .env
 # Edit .env with your configuration
 ```
 
-4. Deploy to Kubernetes:
+4. **Deploy to Kubernetes:**
 ```bash
 kubectl apply -f config/kubernetes/
 ```
@@ -106,11 +170,65 @@ tools:
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+### Git Workflow
+
+1. **Fork the repository** (if you don't have write access)
+2. **Create a feature branch:**
+   ```bash
+   git checkout -b feature/amazing-feature
+   # or
+   git checkout -b bugfix/issue-description
+   # or
+   git checkout -b hotfix/critical-fix
+   ```
+
+3. **Make your changes and commit:**
+   ```bash
+   # Stage your changes
+   git add .
+   
+   # Commit with descriptive message
+   git commit -m "feat: add new SRE agent for network monitoring"
+   # or
+   git commit -m "fix: resolve memory leak in AI analysis engine"
+   # or
+   git commit -m "docs: update API documentation for MCP servers"
+   ```
+
+4. **Push to your branch:**
+   ```bash
+   git push origin feature/amazing-feature
+   ```
+
+5. **Open a Pull Request** on GitHub
+
+### Commit Message Convention
+
+We follow [Conventional Commits](https://www.conventionalcommits.org/) format:
+
+- `feat:` - New features
+- `fix:` - Bug fixes
+- `docs:` - Documentation changes
+- `style:` - Code style changes (formatting, etc.)
+- `refactor:` - Code refactoring
+- `test:` - Adding or updating tests
+- `chore:` - Maintenance tasks
+
+### Branch Naming Convention
+
+- `feature/description` - New features
+- `bugfix/description` - Bug fixes
+- `hotfix/description` - Critical fixes
+- `docs/description` - Documentation updates
+- `refactor/description` - Code refactoring
+
+### Pull Request Guidelines
+
+- Provide a clear description of changes
+- Reference related issues
+- Ensure all tests pass
+- Update documentation if needed
+- Request review from team members
 
 ## 📝 License
 
@@ -119,8 +237,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🆘 Support
 
 - **Documentation**: Check the `docs/` directory for detailed documentation
-- **Issues**: Report bugs and feature requests via [GitHub Issues](https://github.com/your-username/sre-agent-service/issues)
-- **Discussions**: Join our [GitHub Discussions](https://github.com/your-username/sre-agent-service/discussions) for questions and ideas
+- **Issues**: Report bugs and feature requests via [GitHub Issues](https://github.com/Sasai-Fintech/sre-agent-service/issues)
+- **Discussions**: Join our [GitHub Discussions](https://github.com/Sasai-Fintech/sre-agent-service/discussions) for questions and ideas
+- **Repository**: [https://github.com/Sasai-Fintech/sre-agent-service](https://github.com/Sasai-Fintech/sre-agent-service)
 
 ## 🗺️ Roadmap
 
