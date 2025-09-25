@@ -1,0 +1,44 @@
+# Core AI/ML Libraries
+openai>=1.0.0              # Azure OpenAI integration
+langchain>=0.1.0           # LLM orchestration
+pydantic>=2.0.0            # Data validation
+
+# Agent Framework
+agno-agentos>=1.0.0        # Primary agent framework
+unpage-patterns>=0.1.0     # Configuration patterns
+
+# MCP Integration
+mcp>=1.0.0                 # Model Context Protocol
+mcp-servers>=0.1.0         # MCP server implementations
+
+# Observability Integration
+signoz-client>=1.0.0       # Signoz API client
+clickhouse-connect>=0.6.0  # ClickHouse integration
+pymongo>=4.0.0             # MongoDB integration
+kubernetes>=28.0.0         # Kubernetes API client
+
+# Communication
+slack-sdk>=3.0.0           # Slack API integration
+fastapi>=0.100.0           # API framework
+uvicorn>=0.23.0            # ASGI server
+
+# Data Processing
+pandas>=2.0.0              # Data manipulation
+numpy>=1.24.0              # Numerical computing
+
+# Development Dependencies
+black>=23.0.0              # Code formatting
+flake8>=6.0.0              # Linting
+mypy>=1.0.0                # Type checking
+pytest>=7.0.0              # Testing framework
+pytest-cov>=4.0.0          # Coverage reporting
+pre-commit>=3.0.0          # Git hooks
+
+# HTTP Client
+httpx>=0.24.0              # HTTP client
+
+# Caching
+redis>=4.0.0               # Redis client
+
+# Monitoring
+prometheus-client>=0.17.0  # Prometheus metrics
