@@ -1,0 +1,469 @@
+# SRE Agent Service - Cursor AI Rules
+
+## Project Context
+This is an AI-powered SRE agent service that automatically analyzes infrastructure alerts and provides comprehensive Root Cause Analysis (RCA) directly within Slack threads. The system uses Agno AgentOS, Azure OpenAI, MCP (Model Context Protocol), and integrates with Signoz, Kubernetes, MongoDB Atlas, and Slack.
+
+## Code Style & Standards
+
+### Python Code Style
+- Use Python 3.11+ features
+- Follow PEP 8 style guidelines
+- Use type hints for all function parameters and return values
+- Use docstrings for all classes, methods, and functions
+- Prefer f-strings over .format() or % formatting
+- Use pathlib.Path instead of os.path
+- Use dataclasses or Pydantic models for data structures
+
+### Code Organization
+- Group related functionality in modules
+- Use dependency injection for external services
+- Implement proper error handling with custom exceptions
+- Use async/await for I/O operations
+- Implement proper logging with structured logging
+
+### Testing Standards
+- Write unit tests for all business logic
+- Use pytest for testing framework
+- Aim for 90%+ code coverage
+- Use fixtures for test data
+- Mock external dependencies
+- Write integration tests for API endpoints
+
+## Pull Request Standards
+
+### PR Title Format
+Use conventional commit format with scope:
+- `feat(scope): brief description`
+- `fix(scope): brief description`
+- `docs(scope): brief description`
+- `refactor(scope): brief description`
+- `test(scope): brief description`
+- `chore(scope): brief description`
+
+Examples:
+- `feat(agents): add network agent for SSL certificate monitoring`
+- `fix(ai-engine): resolve memory leak in context building`
+- `docs(api): update MCP server documentation`
+
+### PR Description Template
+When creating PRs, always include:
+
+```markdown
+## 🎯 Overview
+Brief description of what this PR accomplishes and why it's needed.
+
+## 📋 Changes Made
+- [ ] Change 1 with detailed explanation
+- [ ] Change 2 with detailed explanation
+- [ ] Change 3 with detailed explanation
+
+## 🏗️ Architecture Impact
+Explain how this change affects the overall system architecture.
+
+## 🧪 Testing
+- [ ] Unit tests added/updated
+- [ ] Integration tests added/updated
+- [ ] Manual testing performed
+- [ ] Performance testing (if applicable)
+
+## 📊 Performance Impact
+- Response time changes
+- Memory usage changes
+- Throughput changes
+- Resource utilization changes
+
+## 🔒 Security Considerations
+- Authentication/authorization changes
+- Data handling changes
+- API security updates
+- Compliance considerations
+
+## 📚 Documentation Updates
+- [ ] README.md updated
+- [ ] API documentation updated
+- [ ] Architecture diagrams updated
+- [ ] Configuration examples updated
+
+## 🚀 Deployment Notes
+- Environment variables changes
+- Configuration changes
+- Database migrations (if any)
+- Breaking changes (if any)
+
+## 🔍 Review Checklist
+- [ ] Code follows project standards
+- [ ] Tests pass locally
+- [ ] Documentation is updated
+- [ ] No breaking changes (or properly documented)
+- [ ] Performance impact assessed
+- [ ] Security implications reviewed
+
+## 📸 Screenshots/Demos
+Include screenshots or demo videos for UI changes.
+
+## 🔗 Related Issues
+Closes #issue_number
+Relates to #issue_number
+```
+
+### Code Review Guidelines
+- Review for security vulnerabilities
+- Check for performance implications
+- Ensure proper error handling
+- Verify test coverage
+- Check documentation completeness
+- Validate configuration changes
+
+## Architecture Guidelines
+
+### Agent Development
+- Each agent should be focused on a specific domain (Network, Database, Infrastructure, Application, Resource)
+- Use MCP servers for external integrations
+- Implement proper error handling and retry logic
+- Use async/await for concurrent operations
+- Implement proper logging and monitoring
+
+### MCP Server Implementation
+- Follow MCP protocol standards
+- Implement proper error handling
+- Use connection pooling for external services
+- Implement rate limiting and caching
+- Provide comprehensive logging
+
+### AI Engine Development
+- Use Azure OpenAI with proper error handling
+- Implement context building with relevant data
+- Use proper prompt engineering techniques
+- Implement response validation
+- Add confidence scoring for analysis results
+
+### Integration Patterns
+- Use dependency injection for external services
+- Implement circuit breakers for external API calls
+- Use proper authentication and authorization
+- Implement proper data validation
+- Use structured logging with correlation IDs
+
+## Documentation Standards
+
+### Code Documentation
+- Use docstrings for all public methods
+- Include type hints for all parameters
+- Document complex algorithms
+- Include usage examples
+- Document error conditions
+
+### API Documentation
+- Use OpenAPI/Swagger specifications
+- Include request/response examples
+- Document error codes and messages
+- Include authentication requirements
+- Provide integration examples
+
+### Architecture Documentation
+- Update architecture diagrams for significant changes
+- Document data flow changes
+- Update deployment diagrams
+- Document configuration changes
+- Include troubleshooting guides
+
+## Security Guidelines
+
+### Authentication & Authorization
+- Use Azure AD for authentication
+- Implement RBAC for different user types
+- Use secure token handling
+- Implement proper session management
+- Use HTTPS for all communications
+
+### Data Protection
+- Encrypt sensitive data in transit and at rest
+- Implement proper data validation
+- Use secure configuration management
+- Implement audit logging
+- Follow data privacy regulations
+
+### API Security
+- Implement rate limiting
+- Use proper input validation
+- Implement CORS policies
+- Use secure headers
+- Implement proper error handling
+
+## Performance Guidelines
+
+### Response Time Requirements
+- Alert analysis: < 5 minutes
+- On-demand analysis: < 5 minutes
+- Data retrieval: < 30 seconds
+- Response generation: < 2 minutes
+
+### Scalability Requirements
+- Handle 100 concurrent requests
+- Auto-scale based on demand
+- Optimize resource usage
+- Implement proper caching
+- Use connection pooling
+
+### Monitoring Requirements
+- Implement comprehensive metrics
+- Use structured logging
+- Implement health checks
+- Monitor performance metrics
+- Set up proper alerting
+
+## Error Handling Standards
+
+### Exception Handling
+- Use custom exception classes
+- Implement proper error messages
+- Include error codes for API responses
+- Log errors with proper context
+- Implement graceful degradation
+
+### Retry Logic
+- Implement exponential backoff
+- Set maximum retry limits
+- Use circuit breakers
+- Implement timeout handling
+- Log retry attempts
+
+### Fallback Mechanisms
+- Implement alternative analysis methods
+- Use cached data when available
+- Provide partial results when possible
+- Implement graceful degradation
+- Notify users of service limitations
+
+## Testing Standards
+
+### Unit Testing
+- Test all business logic
+- Mock external dependencies
+- Use fixtures for test data
+- Test error conditions
+- Aim for 90%+ coverage
+
+### Integration Testing
+- Test API endpoints
+- Test external integrations
+- Test database operations
+- Test authentication flows
+- Test error scenarios
+
+### Performance Testing
+- Load test with expected traffic
+- Test response time requirements
+- Test memory usage
+- Test concurrent operations
+- Test failure scenarios
+
+## Deployment Guidelines
+
+### Environment Configuration
+- Use environment variables for configuration
+- Implement proper secrets management
+- Use configuration validation
+- Implement feature flags
+- Use proper logging configuration
+
+### Kubernetes Deployment
+- Use proper resource limits
+- Implement health checks
+- Use proper service configuration
+- Implement proper ingress
+- Use proper security contexts
+
+### CI/CD Pipeline
+- Run tests on every commit
+- Implement security scanning
+- Use proper build caching
+- Implement proper deployment strategies
+- Use proper rollback procedures
+
+## Monitoring & Observability
+
+### Metrics Collection
+- Use Prometheus for metrics
+- Implement custom metrics
+- Monitor business metrics
+- Monitor technical metrics
+- Set up proper alerting
+
+### Logging Standards
+- Use structured logging
+- Include correlation IDs
+- Log at appropriate levels
+- Include relevant context
+- Implement log aggregation
+
+### Tracing Requirements
+- Use distributed tracing
+- Include request correlation
+- Trace external calls
+- Include performance data
+- Implement trace analysis
+
+## When Creating PRs, Always:
+
+1. **Include Architecture Diagrams** - Use Mermaid diagrams to show:
+   - System architecture changes
+   - Data flow modifications
+   - Component interactions
+   - Deployment architecture
+
+2. **Provide Detailed Explanations** - Explain:
+   - Why the change is needed
+   - How it solves the problem
+   - What alternatives were considered
+   - What the impact will be
+
+3. **Include Code Examples** - Show:
+   - Before/after code snippets
+   - Usage examples
+   - Configuration examples
+   - API usage examples
+
+4. **Document Performance Impact** - Include:
+   - Response time changes
+   - Memory usage changes
+   - Throughput changes
+   - Resource utilization
+
+5. **Include Testing Evidence** - Show:
+   - Test results
+   - Performance benchmarks
+   - Load testing results
+   - Security scan results
+
+6. **Provide Deployment Instructions** - Include:
+   - Environment variable changes
+   - Configuration updates
+   - Database migrations
+   - Breaking changes
+
+7. **Include Troubleshooting Guide** - Provide:
+   - Common issues and solutions
+   - Debugging steps
+   - Monitoring recommendations
+   - Rollback procedures
+
+## Example PR Description with Diagrams
+
+```markdown
+## 🎯 Overview
+This PR implements the Network Agent for SSL certificate monitoring and connection issue analysis.
+
+## 🏗️ Architecture Changes
+
+### System Architecture
+```mermaid
+graph TB
+    subgraph "Network Agent"
+        NA[Network Agent]
+        SSL[SSL Monitor]
+        CONN[Connection Analyzer]
+    end
+    
+    subgraph "MCP Servers"
+        SIG[SigNoz MCP]
+        K8S[Kubernetes MCP]
+    end
+    
+    NA --> SSL
+    NA --> CONN
+    SSL --> SIG
+    CONN --> K8S
+```
+
+### Data Flow
+```mermaid
+sequenceDiagram
+    participant SA as Slack Alert
+    participant RA as Router Agent
+    participant NA as Network Agent
+    participant MCP as MCP Servers
+    participant AI as AI Engine
+    
+    SA->>RA: SSL Certificate Alert
+    RA->>NA: Route to Network Agent
+    NA->>MCP: Query Certificate Data
+    MCP->>NA: Return Certificate Info
+    NA->>AI: Analyze Certificate Issue
+    AI->>NA: Return Analysis Results
+    NA->>SA: Post RCA to Thread
+```
+
+## 📋 Changes Made
+- [ ] Implemented NetworkAgent class with SSL monitoring capabilities
+- [ ] Added certificate expiration detection and analysis
+- [ ] Integrated with SigNoz MCP server for log analysis
+- [ ] Added connection pattern analysis
+- [ ] Implemented remediation suggestions
+
+## 🧪 Testing
+- [ ] Unit tests for certificate parsing (95% coverage)
+- [ ] Integration tests with mock MCP servers
+- [ ] Performance tests for response time (< 2 minutes)
+- [ ] Load testing with 50 concurrent requests
+
+## 📊 Performance Impact
+- Response time: 1.8 minutes (target: < 2 minutes) ✅
+- Memory usage: +15MB per agent instance
+- Throughput: 50 concurrent analyses
+- CPU usage: +5% during analysis
+
+## 🔒 Security Considerations
+- Certificate data is encrypted in transit
+- No sensitive data stored in logs
+- Proper authentication with MCP servers
+- Input validation for certificate data
+
+## 📚 Documentation Updates
+- [ ] Updated agent architecture documentation
+- [ ] Added Network Agent configuration examples
+- [ ] Updated API documentation
+- [ ] Added troubleshooting guide
+
+## 🚀 Deployment Notes
+- New environment variable: `NETWORK_AGENT_ENABLED=true`
+- No database migrations required
+- No breaking changes
+- Backward compatible with existing agents
+
+## 🔍 Review Checklist
+- [x] Code follows project standards
+- [x] Tests pass locally
+- [x] Documentation is updated
+- [x] No breaking changes
+- [x] Performance impact assessed
+- [x] Security implications reviewed
+
+## 🔗 Related Issues
+Closes #123
+Relates to #98
+```
+
+## Special Instructions for AI Assistant
+
+When helping with this project:
+
+1. **Always consider the SRE context** - This is a production system that needs to be reliable, performant, and secure.
+
+2. **Think about observability** - Every component should be monitorable and debuggable.
+
+3. **Consider scalability** - The system needs to handle production workloads.
+
+4. **Security first** - Always consider security implications of any changes.
+
+5. **Documentation is crucial** - This is a complex system that needs comprehensive documentation.
+
+6. **Testing is mandatory** - Every change needs proper test coverage.
+
+7. **Performance matters** - Response time requirements are strict and must be met.
+
+8. **Use diagrams liberally** - Complex systems benefit from visual representations.
+
+9. **Follow the established patterns** - Consistency is important in a team environment.
+
+10. **Consider the user experience** - The end users are SRE engineers who need clear, actionable information.
