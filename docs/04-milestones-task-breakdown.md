@@ -242,10 +242,53 @@ This document provides a comprehensive breakdown of the SRE Agent project into m
 - **Risk**: User adoption issues
 - **Mitigation**: Comprehensive training and documentation
 
-## 8. Milestone 6: Production Deployment & Optimization
+## 8. Milestone 6: Knowledge Base & Portal
 
 ### 8.1 Milestone Overview
 - **Duration**: 2 weeks (Weeks 11-12)
+- **Objective**: Build knowledge base system and web portal for incident management
+- **Deliverables**: Knowledge base, web portal, incident learning system
+
+### 8.2 Detailed Tasks
+
+#### Week 11: Knowledge Base Implementation
+| Task ID | Task Name | Assignee | Duration | Dependencies | Acceptance Criteria |
+|---------|-----------|----------|----------|--------------|-------------------|
+| M6.1.1 | Design knowledge base schema | Backend Developer | 2 days | M5.2.5 | Knowledge base schema designed |
+| M6.1.2 | Implement incident storage | Backend Developer | 3 days | M6.1.1 | Incident data stored in ClickHouse |
+| M6.1.3 | Create RCA storage system | Backend Developer | 2 days | M6.1.2 | RCA data stored and indexed |
+| M6.1.4 | Implement pattern recognition | AI/ML Engineer | 2 days | M6.1.3 | Pattern recognition working |
+| M6.1.5 | Add learning algorithms | AI/ML Engineer | 1 day | M6.1.4 | Learning algorithms implemented |
+
+#### Week 12: Web Portal Development
+| Task ID | Task Name | Assignee | Duration | Dependencies | Acceptance Criteria |
+|---------|-----------|----------|----------|--------------|-------------------|
+| M6.2.1 | Create web portal frontend | Frontend Developer | 3 days | M6.1.5 | Web portal UI working |
+| M6.2.2 | Implement RCA viewer | Frontend Developer | 2 days | M6.2.1 | RCA viewer functional |
+| M6.2.3 | Add incident tracker | Frontend Developer | 2 days | M6.2.2 | Incident tracker working |
+| M6.2.4 | Create search interface | Frontend Developer | 2 days | M6.2.3 | Search functionality working |
+| M6.2.5 | Add analytics dashboard | Frontend Developer | 1 day | M6.2.4 | Analytics dashboard working |
+
+### 8.3 Deliverables
+- [ ] Knowledge base schema and storage
+- [ ] Incident learning system
+- [ ] Pattern recognition algorithms
+- [ ] Web portal frontend
+- [ ] RCA viewer interface
+- [ ] Incident tracker
+- [ ] Search functionality
+- [ ] Analytics dashboard
+
+### 8.4 Risk Mitigation
+- **Risk**: Knowledge base performance issues
+- **Mitigation**: Implement proper indexing and caching
+- **Risk**: Portal usability issues
+- **Mitigation**: User testing and iterative design
+
+## 9. Milestone 7: Production Deployment & Optimization
+
+### 9.1 Milestone Overview
+- **Duration**: 2 weeks (Weeks 13-14)
 - **Objective**: Deploy to production and optimize performance
 - **Deliverables**: Production deployment, performance optimization, monitoring
 

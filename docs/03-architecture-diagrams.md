@@ -198,6 +198,7 @@ graph TD
         KNOWLEDGE[Knowledge Base]
         HISTORY[Historical Data]
         PATTERNS[Pattern Library]
+        INCIDENTS[Past Incidents DB]
     end
     
     subgraph "Analysis Components"
@@ -205,6 +206,14 @@ graph TD
         TIMELINE[Timeline Builder]
         REMEDIATION[Remediation Suggester]
         CORRELATION[Correlation Engine]
+        LEARNING[Learning Engine]
+    end
+    
+    subgraph "Knowledge Base Portal"
+        WEB_PORTAL[Web Portal]
+        RCA_VIEWER[RCA Viewer]
+        INCIDENT_TRACKER[Incident Tracker]
+        SEARCH[Search Interface]
     end
     
     INPUT --> PREPROCESSOR
@@ -213,19 +222,27 @@ graph TD
     CONTEXT --> KNOWLEDGE
     CONTEXT --> HISTORY
     CONTEXT --> PATTERNS
+    CONTEXT --> INCIDENTS
     
     CONTEXT --> LLM
     LLM --> RCA
     LLM --> TIMELINE
     LLM --> REMEDIATION
     LLM --> CORRELATION
+    LLM --> LEARNING
     
     RCA --> POSTPROCESSOR
     TIMELINE --> POSTPROCESSOR
     REMEDIATION --> POSTPROCESSOR
     CORRELATION --> POSTPROCESSOR
+    LEARNING --> POSTPROCESSOR
     
     POSTPROCESSOR --> OUTPUT
+    OUTPUT --> INCIDENTS
+    INCIDENTS --> WEB_PORTAL
+    WEB_PORTAL --> RCA_VIEWER
+    WEB_PORTAL --> INCIDENT_TRACKER
+    WEB_PORTAL --> SEARCH
 ```
 
 ## 4. Data Flow Architecture

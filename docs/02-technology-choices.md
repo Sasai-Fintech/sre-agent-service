@@ -144,6 +144,7 @@ langchain = {
 - **Specialized Agents**: Focused agents for different problem domains
 - **Easy Maintenance**: Simple to add new agent types
 - **Industry Standard**: Proven pattern in SRE automation
+- **Knowledge Base Integration**: YAML patterns can include knowledge base references
 
 #### 3.4.2 Configuration Structure
 ```yaml
@@ -298,6 +299,7 @@ data:
 - **Integration**: Native integration with OpenTelemetry
 - **Cost Effective**: Open-source with enterprise features
 - **Scalability**: Handles large volumes of data
+- **Knowledge Base Storage**: ClickHouse can store incident history and RCA data
 
 ## 6. Development and Deployment Tools
 

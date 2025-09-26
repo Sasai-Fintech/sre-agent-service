@@ -83,6 +83,7 @@ Each RCA must include:
 - **Actionable Insights**: Specific, implementable recommendations
 - **Visual Elements**: Use Slack formatting for better readability
 - **Reference Links**: Direct links to relevant dashboards and logs
+- **Knowledge Base Integration**: Reference similar past incidents and solutions
 
 #### 3.4.2 Response Delivery
 - **Thread Replies**: Post responses as replies to original alert threads
@@ -103,6 +104,7 @@ Each RCA must include:
 - **Time Range Analysis**: Analyze issues within specified time ranges
 - **Custom Queries**: Allow custom analysis requests
 - **Historical Analysis**: Analyze past incidents for learning
+- **Knowledge Base Queries**: Search through accumulated SRE knowledge and past incidents
 
 ### 3.6 Performance Requirements
 
@@ -231,3 +233,5 @@ Each RCA must include:
 - **Advanced AI**: More sophisticated AI models for analysis
 - **Integration Expansion**: Support for additional observability tools
 - **Self-Learning**: System that learns and improves over time
+- **Knowledge Base Portal**: Web portal for viewing all RCAs, incidents, and SRE knowledge
+- **Incident Learning**: Continuous learning from past incidents to improve future analysis
